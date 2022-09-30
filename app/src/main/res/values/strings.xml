@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">AndroidLab-2022</string>
+    <string name="door">ДВЕРЬ</string>
+    <string name="my">В МОЮ</string>
+    <string name="knock">ПОСТУЧИСЬ</string>
+    <string name="home">home</string>
+    <string name="search">search</string>
+    <string name="tv">tv</string>
+    <string name="down">down</string>
+    <string name="profile">profile</string>
+    <string name="HOME" />
 </resources>
