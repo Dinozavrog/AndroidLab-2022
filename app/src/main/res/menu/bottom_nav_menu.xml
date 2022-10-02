@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Мой Иви"
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24" />
+    <item
+        android:title="Каталог"
+        android:id="@+id/search"
+        android:icon="@drawable/ic_baseline_search_24"/>
+    <item
+        android:title="TV+"
+        android:id="@+id/tv"
+        android:icon="@drawable/ic_baseline_tv_24"/>
+    <item
+        android:title="Загрузки"
+        android:id="@+id/down"
+        android:icon="@drawable/ic_baseline_arrow_downward_24"/>
+    <item
+        android:title="Профиль"
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_perm_identity_24"/>
+</menu>
