@@ -263,13 +263,13 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="140dp"
         android:fontFamily="sans-serif-medium"
         android:text="Сезон 1 серию 1"
         android:textColor="#FFFEFE"
         android:textSize="11sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton9" />
@@ -294,13 +294,15 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="409dp"
         android:layout_height="64dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="-20dp"
         android:background="#151935"
         app:itemIconTint="@color/white"
         app:itemTextColor="#BFBCBC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton9"
         app:menu="@menu/bottom_nav_menu" />
 
     <Button
