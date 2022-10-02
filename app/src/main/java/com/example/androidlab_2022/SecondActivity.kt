@@ -20,12 +20,15 @@ class SecondActivity : AppCompatActivity() {
         }
 
 
+
         intent?.also{
             if(it.action == Intent.ACTION_SEND && it.type=="text/plain"){
 
                 binding.tvFirst.text = intent.getStringExtra(Intent.EXTRA_TEXT)
 
             }
+
+
         }
 
 
