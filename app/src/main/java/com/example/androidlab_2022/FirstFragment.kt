@@ -1,12 +1,10 @@
 package com.example.androidlab_2022
 
 import android.os.Bundle
-import android.provider.SyncStateContract
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.androidlab_2022.databinding.FragmentFirstBinding
+import ru.kpfu.itis.hometasktwo.fragments.DialogFragment
 
 class FirstFragment : Fragment(R.layout.fragment_first) {
 
@@ -19,13 +17,12 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentFirstBinding.bind(view)
-        val bundle = Bundle()
+
 
         with(binding) {
             btnClick.setOnClickListener {
                 counter++
                 tvCount.setText("Counter value: $counter")
-                bundle.putString("COUNTER", "counter value: $counter")
 
             }
             btnSecond.setOnClickListener {
@@ -34,32 +31,38 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
                         android.R.anim.slide_in_left,
                         android.R.anim.slide_out_right
                     )
-                    .replace(R.id.container_of_fragments, SecondFragment())
+                    .replace(R.id.container_of_fragments, SecondFragment.newInstance("$counter"))
                     .addToBackStack("SecondFragment")
                     .commit()
 
             }
+            btnDialog.setOnClickListener {
+                val dialog = DialogFragment(counterValue = counter,
+                    { counterDialog ->
+                        counter = counterDialog
+                        tvCount.setText("Counter value: $counter")
+                    }
+
+                )
+                dialog.show(parentFragmentManager, "Custom dialog")
+            }
+
+
+
         }
 
 
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    private fun saveValueToBundle(counterToSave: Int) {
-        arguments = Bundle().apply {
-            putInt(Digits.COUNT, counterToSave)
-        }
-    }
 
-    private fun restoreCounterValue() {
-        if (arguments != null) {
-            counter = arguments?.getInt(Digits.COUNT) ?: 0
-        }
-    }
+
 
     companion object {
         const val FIRST_FRAGMENT_TAG = "FIRST_FRAGMENT_TAG"
@@ -67,6 +70,11 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
             val firstFragment = FirstFragment()
             firstFragment.arguments = bundle
             return firstFragment
+        }
+        fun newInstance(name: String) = FirstFragment().apply {
+            arguments = Bundle().apply {
+                putString("COUNT", name)
+            }
         }
 
     }

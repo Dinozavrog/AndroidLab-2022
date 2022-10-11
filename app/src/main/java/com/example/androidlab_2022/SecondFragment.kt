@@ -1,5 +1,6 @@
 package com.example.androidlab_2022
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,13 +24,15 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViews()
+        work_please_work()
+
 
     }
 
 
-    private fun initViews() {
+    private fun work_please_work() {
         val counter_val = arguments?.getString("COUNT")
+
 
         with(binding) {
             btnBack.setOnClickListener {
@@ -39,9 +42,20 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
                     .commit()
 
             }
-            tvSecondcount.text = counter_val
 
-            return
+            tvSecondcount.setText("Counter value: $counter_val")
+
+            when (counter_val?.toInt()) {
+                in 0..50 -> {
+                    scrSecond.setBackgroundColor(Color.parseColor("#CA517A"))
+                }
+                in 51..100 -> {
+                    scrSecond.setBackgroundColor(Color.parseColor("#5E5555"))
+                }
+                in 100..Integer.MAX_VALUE -> {
+                    scrSecond.setBackgroundColor(Color.parseColor("#A93FBC"))
+                }
+            }
 
         }
 
@@ -53,6 +67,15 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    companion object {
+
+        fun newInstance(name: String) = SecondFragment().apply {
+            arguments = Bundle().apply {
+                putString("COUNT", name)
+            }
+        }
+
     }
 
 
