@@ -11,9 +11,4 @@
     <color name="grey">#5E5555</color>
     <color name="puple">#A93FBC</color>
 
-    <array name="my_favorite_colors">
-        <item>@color/pink</item>
-        <item>@color/grey</item>
-        <item>@color/puple</item>
-    </array>
 </resources>
