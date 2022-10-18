@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".FirstFragment"
+    android:background="@drawable/img">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/container_of_fragments"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_taro"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:itemCount="5"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_taro"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
