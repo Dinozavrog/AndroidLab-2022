@@ -30,8 +30,8 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
                     card_img = i.cover
                 }
             }
-            tvName.setText(card_name)
-            tvDes.setText(card_des)
+            tvName.setText("Название-$card_name")
+            tvDes.setText("Описание-$card_des")
             Glide.with(this@SecondFragment)
                 .load(card_img)
                 .into(ivTaro)
