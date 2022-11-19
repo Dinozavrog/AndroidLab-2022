@@ -13,21 +13,6 @@ class MainActivity : AppCompatActivity()  {
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initRecyclerView()
-        initFloatingButton()
-    }
-
-
-    private fun initFloatingButton() {
-        binding.fbAddRandomItem.setOnClickListener {
-            val dialog = DialogFragment(
-                onAddButtonClicked = ::addCustomItem
-            )
-            dialog.show(supportFragmentManager, "Custom dialog")
-        }
-    }
-
-    private fun initRecyclerView() {
         adapter = TaroListAdapter(
             differ = DifUtils(),
             onItemClicked = ::onItemClicked,
@@ -37,7 +22,19 @@ class MainActivity : AppCompatActivity()  {
         adapter?.submitList(CardsRep.dataList)
         binding.recyclerView.adapter = adapter
         DeleteCard(adapter).attachToRecyclerView(binding.recyclerView)
+        AddButton()
     }
+
+
+    private fun AddButton() {
+        binding.fbAddRandomItem.setOnClickListener {
+            val dialog = DialogFragment(
+                onAddButtonClicked = ::addCustomItem
+            )
+            dialog.show(supportFragmentManager, "Custom dialog")
+        }
+    }
+
 
     private fun onItemClicked() {
 

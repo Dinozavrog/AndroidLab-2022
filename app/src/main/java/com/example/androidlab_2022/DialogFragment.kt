@@ -38,19 +38,16 @@ class DialogFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initValues()
-    }
-
-    private fun initValues() {
         with(binding) {
             btnSubmit.setOnClickListener {
                 val description = etDescription.text.toString()
                 val title = etTitle.text.toString()
-                val position = if (etTitle.text.toString().isNotBlank())
+                val position = if (etPosition.text.toString().isNotBlank())
                     Integer.valueOf(etPosition.text.toString()) else CardsRep.dataList.size
                 onAddButtonClicked(position, Models.Card(description, title))
                 dialog?.hide()
             }
         }
     }
+
 }

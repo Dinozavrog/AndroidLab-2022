@@ -5,13 +5,22 @@ object CardsRep {
 
     private val randomGeneralItems: List<Models> = listOf(
         Models.Card(
-            "The Ace of Cups or Tarot of Fertility symbolizes the gifts of fate, discoveries, gifts and falling in love.",
-            "Ace of Cups"
+            "Wands are fire. They describe the volitional dimension.",
+            "WANDS"
         ),
         Models.Card(
             "This lasso represents innocence.",
             "Jester"
+        ),
+        Models.Card(
+            "Swords are air and the mental dimension.",
+            "SWORDS"
+        ),
+        Models.Card(
+            "Cups - the element of water, it corresponds to the emotional dimension",
+            "BOWLS"
         )
+
     )
     private val randomAdvertisementItems: List<Models> = listOf(
         Models.Rekalama(

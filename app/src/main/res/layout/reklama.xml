@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_marginTop="8dp"
     android:layout_marginStart="8dp"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="10dp"
     app:cardElevation="4dp"
     android:layout_marginEnd="8dp"
     android:backgroundTint="@color/teal_200"
-    android:layout_height="104dp"
+    android:layout_height="100dp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,9 +25,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tv_title"
             tools:text=""
             android:layout_marginHorizontal="8dp"
-            android:id="@+id/tv_title"
             android:gravity="center"
             android:textColor="@color/black"
             android:textStyle="bold"
