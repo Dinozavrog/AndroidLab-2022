@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/lessonsFragment"
+        android:name="com.example.androidlab_2022.LessonsFragment"
+        android:label="fragment_lessons"
+        tools:layout="@layout/fragment_lessons" />
+
+    <include app:graph="@navigation/nested_graph"/>
+
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.example.androidlab_2022.MusicFragment"
+        android:label="fragment_music"
+        tools:layout="@layout/fragment_music"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.androidlab_2022.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile"/>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.androidlab_2022.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

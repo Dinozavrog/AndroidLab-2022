@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nested_graph"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item
+        android:id="@+id/profileFragment"
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_person_24"/>
+    <item
+        android:id="@+id/settingsFragment"
+        android:title="Settings"
+        android:icon="@drawable/ic_baseline_settings_24"/>
+    <item
+        android:id="@+id/musicFragment"
+        android:title="Music"
+        android:icon="@drawable/ic_baseline_queue_music_24"/>
+    <item
+        android:id="@+id/lessonsFragment"
+        android:title="Lessons"
+        android:icon="@drawable/ic_baseline_laptop_chromebook_24"/>
+
+
+</menu>
