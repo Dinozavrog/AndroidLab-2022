@@ -29,11 +29,11 @@ object CardsRep {
         ),
         Models.Rekalama(
             "Reklama",
-            "http://sun9-42.userapi.com/impg/c855436/v855436611/209705/uCm41PAuEp4.jpg?size=350x600&quality=96&sign=849716546be8c94b8fc922c18728895c&type=album"
+            "https://cdn.optipic.io/site-539/upload/iblock/a18/a18dfbffbc0de3c06dfe247bf256df64.jpg"
         ),
         Models.Rekalama(
             "Reklama",
-            "http://sun9-37.userapi.com/impg/YrMzoxo8bC90IrrBBLt3tzultcXw-KfBb_nwAw/CFeokCeKb-8.jpg?size=350x600&quality=96&sign=9afa492a30e39549442b2e532d0f8c99&type=album"
+            "https://cdn.optipic.io/site-539/upload/iblock/990/9905b8fd7c7b61de1ccdb001e8796377.jpg"
         )
     )
 

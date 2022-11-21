@@ -9,7 +9,7 @@
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/drawable/ic_baseline_10mp_24.xml" value="0.164" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/activiry_second.xml" value="0.27395833333333336" />
-        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/activity_main.xml" value="0.128" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/activity_second.xml" value="0.4" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/card.xml" value="0.161231884057971" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/dialog_fragment.xml" value="0.1337386018237082" />
@@ -20,17 +20,25 @@
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_dialog.xml" value="0.10801393728222997" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_dialog2.xml" value="0.1" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_fourth.xml" value="0.275" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_lessons.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_main.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_music.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_profile.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_second.xml" value="0.264" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_settings.xml" value="0.2609375" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_test.xml" value="0.1" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/fragment_third.xml" value="0.275" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/item_taro.xml" value="0.14962593516209477" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/planet_item.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/reklama.xml" value="0.4" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/svkjsv.xml" value="0.1337386018237082" />
-        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/taro.xml" value="0.1" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/taro.xml" value="0.4" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/taro_title.xml" value="0.1453804347826087" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/layout/test.xml" value="0.2740036231884058" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/menu/menu_main.xml" value="0.2743589743589744" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/Dinara/AndroidStudioProjects/AndroidLab2022/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>

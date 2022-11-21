@@ -16,7 +16,7 @@ class TaroListAdapter (
         when (viewType) {
             R.layout.reklama -> ReklamaHolder.create(parent)
             R.layout.taro -> TaroHolder.create(parent, onItemClicked, onDeleteClicked)
-            else -> throw IllegalArgumentException("There is no viewHolder for such an item! : )")
+            else -> throw IllegalArgumentException("NO NO NO")
         }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
