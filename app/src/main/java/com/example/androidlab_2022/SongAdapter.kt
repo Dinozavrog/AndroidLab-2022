@@ -7,7 +7,7 @@ import com.example.androidlab_2022.databinding.ItemSongBinding
 
 class SongAdapter(
     private val list: List<Song>,
-//    private val action: (Song) -> Unit
+    private val action: (Song) -> Unit
 ) : RecyclerView.Adapter<SongItem>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -16,7 +16,7 @@ class SongAdapter(
         parent,
         false
         ),
-//        action
+        action
     )
 
     override fun onBindViewHolder(

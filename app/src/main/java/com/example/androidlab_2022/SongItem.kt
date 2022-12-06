@@ -13,8 +13,8 @@ import com.google.android.material.internal.ContextUtils.getActivity
 
 class SongItem(
     private val binding: ItemSongBinding,
-//    private val action: (Song) -> Unit,
-//    private var binder: HelloService.HelloBinder? = null,
+    private val action: (Song) -> Unit,
+    private var binder: HelloService.HelloBinder? = null,
 
 
 ) : RecyclerView.ViewHolder(binding.root) {
@@ -28,11 +28,12 @@ class SongItem(
                 .load(song.cover)
                 .into(ivCover)
 
-//            root.setOnClickListener {
-//                action(song)
-//            }
+            root.setOnClickListener {
+                action(song)
+            }
         }
     }
+
 
 }
 

@@ -18,27 +18,27 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
         binding?.run {
             adapter = SongAdapter(SongRep.songs)
-//            {
-//                song(it.id)
-//            }
+            {
+                song(it.id)
+            }
             rvMusic.adapter = adapter
         }
     }
 
     private fun song(id_song: Int) {
-//        parentFragmentManager.beginTransaction()
-//            .setCustomAnimations(
-//                androidx.appcompat.R.anim.abc_slide_in_top,
-//                androidx.appcompat.R.anim.abc_fade_out,
-//                androidx.appcompat.R.anim.abc_fade_in,
-//                androidx.appcompat.R.anim.abc_slide_out_top
-//            )
-//            .replace(
-//                R.id.container_of_fragments,
-//                SongFragment.newInstance(id_song = id_song),
-//            )
-//            .addToBackStack(null)
-//            .commit()
+        parentFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                androidx.appcompat.R.anim.abc_slide_in_top,
+                androidx.appcompat.R.anim.abc_fade_out,
+                androidx.appcompat.R.anim.abc_fade_in,
+                androidx.appcompat.R.anim.abc_slide_out_top
+            )
+            .replace(
+                R.id.container_of_fragments,
+                SongFragment.newInstance(id_song = id_song),
+            )
+            .addToBackStack(null)
+            .commit()
 
     }
     override fun onDestroyView() {

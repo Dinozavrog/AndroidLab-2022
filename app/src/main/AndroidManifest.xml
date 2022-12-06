@@ -4,7 +4,7 @@
     package="com.example.androidlab_2022">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
         android:allowBackup="true"
@@ -20,6 +20,7 @@
             android:name=".HelloService"
             android:enabled="true"
             android:exported="false"
+            android:process=":music"
             android:foregroundServiceType="mediaPlayback" />
 
         <activity

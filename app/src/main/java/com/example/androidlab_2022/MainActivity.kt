@@ -18,9 +18,9 @@ class MainActivity : AppCompatActivity() {
 //        startService(Intent(this, HelloService::class.java).apply {
 //            putExtra("MEDIA_ACTION", MediaActions.PLAY as Parcelable)
 //        })
-//        if(savedInstanceState !=null) {
-//            return
-//        }
+        if(savedInstanceState !=null) {
+            return
+        }
         supportFragmentManager.beginTransaction()
             .add(
                 R.id.container_of_fragments,

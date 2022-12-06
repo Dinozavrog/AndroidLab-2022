@@ -6,6 +6,7 @@ data class Song(
     val id: Int,
     val name: String,
     val author: String,
+    val time: Int,
     @RawRes val audio: Int,
     val genre: String,
     val cover: String

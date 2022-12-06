@@ -11,23 +11,26 @@
         android:id="@+id/iv_img"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginBottom="300dp"
         android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <TextView
         android:id="@+id/tv_song"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="174dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="179dp"
-        android:layout_marginBottom="62dp"
+        android:layout_marginBottom="10dp"
         android:text="TextView"
-        android:textSize="22sp"
         android:textColor="@color/white"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,10 +41,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="174dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="179dp"
+        android:layout_marginBottom="10dp"
         android:text="TextView"
         android:textColor="@color/name"
+        app:layout_constraintBottom_toTopOf="@+id/tv_type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_song" />
@@ -51,7 +55,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="174dp"
-        android:layout_marginTop="19dp"
         android:layout_marginEnd="179dp"
         android:layout_marginBottom="216dp"
         android:text="TextView"
@@ -62,60 +65,97 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageButton
-        android:id="@+id/ib_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="284dp"
-        android:layout_marginTop="591dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="97dp"
-        android:backgroundTint="@color/back"
-        android:src="@drawable/ic_next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ib_prev"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/ib_prev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="591dp"
-        android:layout_marginBottom="97dp"
-        android:backgroundTint="@color/back"
-        android:src="@drawable/ic_prev"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ib_next"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
         android:id="@+id/ib_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="182dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/back"
         android:src="@drawable/ic_baseline_pause_24"
-        tools:layout_editor_absoluteX="246dp"
-        tools:layout_editor_absoluteY="569dp"
-        android:backgroundTint="@color/back"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ib_play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type" />
 
     <ImageButton
         android:id="@+id/ib_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="356dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/back"
         android:src="@drawable/ic_baseline_stop_24"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="548dp"
-        android:backgroundTint="@color/back"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ib_pause"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_img" />
 
     <ImageButton
         android:id="@+id/ib_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="356dp"
+        android:layout_marginEnd="99dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/back"
         android:src="@drawable/ic_baseline_play_arrow_24"
-        tools:layout_editor_absoluteX="278dp"
-        tools:layout_editor_absoluteY="359dp"
-        android:backgroundTint="@color/back"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ib_pause"
+        app:layout_constraintTop_toBottomOf="@+id/iv_img" />
+
+    <ImageButton
+        android:id="@+id/ib_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/back"
+        android:src="@drawable/ic_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ib_prev"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/ib_prev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/back"
+        android:src="@drawable/ic_prev"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ib_next"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="148dp"
+        android:max="100"
+        android:progress="0"
+        android:thumbTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/ib_pause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
