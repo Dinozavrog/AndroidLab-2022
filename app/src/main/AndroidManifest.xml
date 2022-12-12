@@ -20,7 +20,6 @@
             android:name=".HelloService"
             android:enabled="true"
             android:exported="false"
-            android:process=":music"
             android:foregroundServiceType="mediaPlayback" />
 
         <activity

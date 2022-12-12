@@ -25,7 +25,7 @@ import java.security.Provider
 
 class SongFragment : Fragment(R.layout.fragment_song) {
     private var binding: FragmentSongBinding? = null
-    private var id_of_song: Int = 0
+    private var id_of_song: Int = -1
     private var musicService: HelloService? = null
     private var binder: HelloService.HelloBinder? = null
     private var c: Int = 5
@@ -33,17 +33,16 @@ class SongFragment : Fragment(R.layout.fragment_song) {
 
     private val connection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            Log.e("bin", "======")
             binder = service as? HelloService.HelloBinder
-            Log.e("binFromServ", binder.toString())
-//            arguments?.getInt("id")?.let {
-//                val progress = arguments?.getInt(EXTRA_PROGRESS)
-//                if (progress != null) {
-//                    binder?.playCurrentMusic(it, progress)
-//                } else {
-//                    binder?.playMyMusic(it)
-//                }
-//            }
+            arguments?.getInt("SONG_ID")?.let {
+                val progress = arguments?.getInt(EXTRA_PROGRESS)
+                if (progress != null) {
+                    binder?.playCurrentMusic(it, progress)
+                } else {
+                    binder?.playMyMusic(it)
+                }
+                addView(it)
+            }
         }
 
 
@@ -55,11 +54,11 @@ class SongFragment : Fragment(R.layout.fragment_song) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        activity?.bindService(
-//            Intent(requireContext(), HelloService::class.java),
-//            connection,
-//            BIND_AUTO_CREATE
-//        )
+        activity?.bindService(
+            Intent(requireContext(), HelloService::class.java),
+            connection,
+            BIND_AUTO_CREATE
+        )
         seekBar = binding?.seekBar
 
     }
@@ -68,42 +67,14 @@ class SongFragment : Fragment(R.layout.fragment_song) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSongBinding.bind(view)
 //        pauseOrPlayTrack()
-//        binder = service as? HelloService.HelloBinder
         binding?.run {
-            val songs = SongRep.songs
-            var song_name: String = ""
-            var song_author: String = ""
-            var song_des: String = ""
-            var song_img: String = ""
-            c = arguments?.getInt(SONG_ID)?:-100
-            for (song in songs) {
-                if (song.id == c) {
-                    song_name = song.name
-                    song_author = song.author
-                    song_des = song.genre
-                    song_img = song.cover
-                    id_of_song = song.id
-                }
+            ibPrev.setOnClickListener {
+                playPreviousSong()
+                Log.e("HelloService", "hi")
             }
-            tvSong.setText(song_name)
-            textView2.setText(song_author)
-            tvType.setText(song_des)
-            Glide.with(this@SongFragment)
-                .load(song_img)
-                .into(ivImg)
-//            ibPrev.setOnClickListener {
-//                playPreviousSong()
-//                Log.e("HelloService", "hi")
-//            }
-//            ibNext.setOnClickListener {
-//                playNextTrack()
-//            }
-//            ibStop.setOnClickListener {
-//                stopPlayingSong()
-//            }
-//            ibPause.setOnClickListener {
-//                pauseOrPlayTrack()
-//            }
+            ibNext.setOnClickListener {
+                playNextTrack()
+            }
             ibPlay.setOnClickListener {
                 pauseOrPlayTrack()
             }
@@ -114,44 +85,28 @@ class SongFragment : Fragment(R.layout.fragment_song) {
 
     }
 
+    private fun addView(id: Int) {
+        val song = id.let { SongRep.findSongById(it) }
+        binding?.run {
+            song?.let { sing  ->
+                Glide.with(this@SongFragment)
+                    .load(sing.cover)
+                    .into(ivImg)
+                tvSong.setText(sing.name)
+                textView2.setText(sing.author)
+                tvType.setText(sing.genre)
+            }}
 
-//    private fun setView(id: Int) {
-//        initMusic(id)
-//    }
 
-//    private fun initMusic(id: Int) {
-//        binding?.apply {
-//
-//            with(binding){
-//                this?.ibPlay?.setOnClickListener {
-//                    musicService?.play()
-//                }
-//                this?.ibPause?.setOnClickListener {
-//                    musicService?.pause()
-//                }
-//                this?.ibPrev?.setOnClickListener {
-//                    musicService?.prev()
-//                    update(musicService?.getId()?:0)
-//                }
-//                this?.ibNext?.setOnClickListener {
-//                    musicService?.next()
-//                    update(musicService?.getId()?:0)
-//                }
-//                this?.ibStop?.setOnClickListener {
-//                    musicService?.stop()
-//                }
-//
-//            }
-//        }
-//    }
+    }
 
-//    private fun update(id: Int) {
-//        with(binding) {
-//            this?.ibPlay?.setOnClickListener {
-//                musicService?.playM
-//            }
-//        }
-//    }
+    private fun update(id: Int) {
+        with(binding) {
+            this?.ibPlay?.setOnClickListener {
+                musicService?.play()
+            }
+        }
+    }
 
     private fun seekBar(id: Int, int: Int) {
         with(binding) {
@@ -161,44 +116,34 @@ class SongFragment : Fragment(R.layout.fragment_song) {
     }
 
     private fun playNextTrack() {
-//        binder?.next()
-//        binder?.getCurrentSong()?.id?.let {
-//        }
+        binder?.next()
+        binder?.getCurrentSong()?.id?.let {
+            addView(it)
+        }
+
 
     }
 
     private fun playPreviousSong() {
-//        binder?.next()
-//        binder?.getCurrentSong()?.id?.let {
-//        }
+        binder?.next()
+        binder?.getCurrentSong()?.id?.let {
+            addView(it)
+        }
 
     }
 
     private fun pauseOrPlayTrack() {
-//        if (binder?.isPlaying() == true) {
-//            requireContext().bindService(Intent(requireContext(), HelloService::class.java).apply {
-//                putExtra("MEDIA_ACTION", MediaActions.PAUSE as Parcelable)
-//                putExtra("RAW", id_of_song)
-//            },
-//            connection,
-//            Service.BIND_AUTO_CREATE)
-//            binder?.pauseMusic()
-//            binding?.ibPlay?.setImageResource(R.drawable.ic_play)
-//        } else {
-            requireContext().bindService(Intent(requireContext(), HelloService::class.java).apply {
-                putExtra("MEDIA_ACTION", MediaActions.PLAY as Parcelable)
-                putExtra("RAW", id_of_song)
-            },
-                connection,
-                Service.BIND_AUTO_CREATE)
-            Log.e("binder", binder.toString())
-            binder?.playMusic(id_of_song)
-            binding?.ibPlay?.setImageResource(R.drawable.ic_baseline_stop_24)
+        if (binder?.isPlaying() == true) {
+            binder?.pause()
+            binding?.ibPlay?.setImageResource(R.drawable.ic_play)
+        } else {
+            binder?.play()
+            binding?.ibPlay?.setImageResource(R.drawable.ic_baseline_pause_24)
         }
-//    }
+    }
 
     private fun stopPlayingSong() {
-        binder?.stopMusic()
+        binder?.stop()
         binding?.ibPlay?.setImageResource(R.drawable.ic_play)
     }
 
