@@ -3,8 +3,8 @@
     <style name="Theme.AndroidLab2022" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#60556E</item>
-        <item name="colorPrimaryVariant">#131313</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">#523980</item>
+        <item name="colorOnPrimary">@color/back</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#675AAE</item>
         <item name="colorSecondaryVariant">#665C83</item>
@@ -12,5 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">#3A383D</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">#4D4161</item>
+        <item name="fontFamily">@font/prosto_one</item>
     </style>
 </resources>

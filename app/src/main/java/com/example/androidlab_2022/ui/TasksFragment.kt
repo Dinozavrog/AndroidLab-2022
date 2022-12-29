@@ -43,7 +43,6 @@ class TasksFragment : Fragment(R.layout.fragment_tasks) {
             }
             fbAdd.setOnClickListener {
                 EditTaskFragment(0)
-//                deleteAllTasks()
             }
             rvTasks.run {
                 adapter = adapter
@@ -121,7 +120,6 @@ class TasksFragment : Fragment(R.layout.fragment_tasks) {
 
     private fun deleteTask(id: Int) {
         lifecycleScope.launch {
-            Log.e("sosi", "hui")
             repository?.deleteTask(id)
         }
         updateList()
@@ -139,7 +137,7 @@ class TasksFragment : Fragment(R.layout.fragment_tasks) {
                 Log.e("list", tasks.toString())
                 if(tasks.isNullOrEmpty()) {
                     rvTasks.visibility = View.GONE
-                    tvNoTasks.setText("Для начала работы создайте первую цель")
+                    tvNoTasks.visibility = View.VISIBLE
                 }
                 else {
                     rvTasks.visibility = View.VISIBLE

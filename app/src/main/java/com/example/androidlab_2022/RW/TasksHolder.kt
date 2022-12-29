@@ -14,23 +14,15 @@ class TasksHolder (
     private var task: Task? = null
         ) : RecyclerView.ViewHolder(binding.root) {
 
-//    init {
-//        with(binding) {
-//            ibDelete.setOnClickListener {
-//                onDeleteClicked?.invoke(adapterPosition)
-//            }
-//            ibEdit.setOnClickListener {
-//                onEditClicked?.invoke(adapterPosition)
-//
-//            }
-//        }
-//    }
+
 
     fun bind(item: Task) {
         this.task = item
         with(binding) {
             tvTitle.text = item.title
             tvDescription.text = item.description
+            tvDate.text = item.date.toString()
+            tvLocation.text = item.longitude.toString() + " " + item.latitude.toString()
 
             ibEdit.setOnClickListener {
                 item.id?.let { it1 -> onEditClicked(it1) }
@@ -41,14 +33,6 @@ class TasksHolder (
         }
     }
 
-    fun onBind(item: Task) {
-        with(binding) {
-            tvTitle.text = item.title
-            tvDescription.text = item.description
-            tvDate.text = item.date.toString()
-            tvLocation.text = item.longitude.toString() + " " + item.latitude.toString()
-        }
-    }
 
     companion object {
         fun create(

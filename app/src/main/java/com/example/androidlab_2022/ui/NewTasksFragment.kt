@@ -25,6 +25,7 @@ import com.example.androidlab_2022.data.entity.DateToString
 import com.example.androidlab_2022.data.entity.Task
 import com.example.androidlab_2022.databinding.FragmentNewTaskBinding
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import java.util.*
@@ -79,19 +80,15 @@ class NewTasksFragment : Fragment(R.layout.fragment_new_task) {
                 backToListFragment()
             }
             btnChooseDate.setOnClickListener {
-//                registerPermissionListener()
-//                checkLocationPermission()
+
                 chooseDate()
             }
             btnSend.setOnClickListener {
-//                checkLocationPermission()
                 saveTask()
             }
-//            addLocation()
 
         }
         TaskExists()
-//        setLocation()
         checkPermission()
 
 
@@ -236,137 +233,48 @@ class NewTasksFragment : Fragment(R.layout.fragment_new_task) {
             .commit()
     }
 
-
-//    private fun checkLocation1Permission() {
-//        Log.e("jfjjfjf", "как же я устала")
-//        when {
-//            ((ContextCompat.checkSelfPermission(
-//                this.requireContext(),
-//                Manifest.permission.ACCESS_FINE_LOCATION
-//            )
-//                    == PackageManager.PERMISSION_GRANTED) and (ContextCompat.checkSelfPermission(
-//                this.requireContext(),
-//                Manifest.permission.ACCESS_COARSE_LOCATION
-//            ) == PackageManager.PERMISSION_GRANTED)) -> {
-//                Toast.makeText(this.requireContext(), "camera run", Toast.LENGTH_LONG).show()
-//            }
-//            shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)-> {
-//                Toast.makeText(this.requireContext(), "shouldShowRequestPermissionRationale", Toast.LENGTH_LONG).show()
-//            }
-//            else -> {
-////                launcher.launch(Manifest.permission.ACCESS_COARSE_LOCATION)
-//                launcher.launch(arrayOf(
-//                    Manifest.permission.ACCESS_FINE_LOCATION,
-//                    Manifest.permission.ACCESS_COARSE_LOCATION,
-//                ))
-////                launcher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-//            }
-//        }
-//    }
-//
-//    private fun checkLocationPermission(){
-//        when{
-//            ((ContextCompat.checkSelfPermission(this.requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
-//                    == PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(this.requireContext(),
-//            Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) ->{
-//                        Toast.makeText(this.requireContext(), "Сфигали ты ран то",
-//                        Toast.LENGTH_LONG).show()
-//                    }
-//            else->{
-//                launcher.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
-//            }
-//        }
-//    }
-//
-//    private fun registerPermissionListener(){
-//        launcher = registerForActivityResult(
-//            ActivityResultContracts.RequestMultiplePermissions()
-//        ){
-//            if((it[Manifest.permission.ACCESS_COARSE_LOCATION] == true)
-//            and (it[Manifest.permission.ACCESS_FINE_LOCATION] == true)){
-//                Toast.makeText(this.requireContext(), it[Manifest.permission.ACCESS_FINE_LOCATION].toString(), Toast.LENGTH_LONG).show()
-//            }
-//            else{
-//                Toast.makeText(this.requireContext(), "Permission denied", Toast.LENGTH_LONG).show()
-//            }
-//        }
-//    }
-    private fun setLocation() {
-        if (checkPermissions() == true) {
-            getCurrentLocation()
-        } else {
-            requestPermissions(
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ), REQUEST_CODE
+    private fun checkPermissions(): Boolean? {
+        activity?.apply {
+            return (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
             )
+                    == PackageManager.PERMISSION_GRANTED &&
+                    ContextCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                    )
+                    == PackageManager.PERMISSION_GRANTED)
         }
+        return null
     }
 
-        private fun checkPermissions(): Boolean? {
-            activity?.apply {
-                return (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                )
-                        == PackageManager.PERMISSION_GRANTED &&
-                        ContextCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.ACCESS_COARSE_LOCATION
-                        )
-                        == PackageManager.PERMISSION_GRANTED)
-            }
-            return null
-        }
 
-        override fun onRequestPermissionsResult(
-            requestCode: Int,
-            permissions: Array<out String>,
-            grantResults: IntArray
-        ) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-            if (requestCode == REQUEST_CODE && grantResults.isNotEmpty() &&
-                grantResults[0] == PackageManager.PERMISSION_GRANTED
-            ) {
-                getCurrentLocation()
-            } else {
-                Log.e("что за хуйня", "hui")
-                backToListFragment()
-            }
-        }
+    @SuppressLint("MissingPermission")
+    fun getLocation() {
+        val fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
+        fusedLocationClient.lastLocation
+            .addOnSuccessListener { location ->
+                if (location != null) {
+                    binding?.etLongitude?.setText(location.longitude.toString())
+                    binding?.etLatitude?.setText(location.latitude.toString())
+                }else{
+                    Log.e("LOCATION_NOT_FOUND", "getLocation()")
 
-        @SuppressLint("MissingPermission")
-        private fun getCurrentLocation() {
-            val locationManager =
-                activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) or
-                locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-            ) {
-                if (checkPermissions() == true) {
-                    client?.lastLocation?.addOnCompleteListener {
-                        val location = it.result
-                        if (location != null) {
-                            binding?.etLongitude?.setText(location.longitude.toString())
-                            binding?.etLatitude?.setText(location.latitude.toString())
-                        }
-                    }
                 }
-            } else {
-                startActivity(
-                    Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                )
             }
-        }
+    }
+
+
 
     private fun checkPermission(){
         if (checkSelfPermission(
                 requireContext(),
                 Manifest.permission.ACCESS_COARSE_LOCATION,
             ) == PackageManager.PERMISSION_GRANTED){
-            getCurrentLocation()
+            Log.e("LOCATION", "getCurrentLocation()")
+            getLocation()
         }else{
             permissionLauncher.launch(
                 arrayOf(
@@ -383,9 +291,9 @@ class NewTasksFragment : Fragment(R.layout.fragment_new_task) {
                 it[Manifest.permission.ACCESS_FINE_LOCATION] == true ||
                 it[Manifest.permission.ACCESS_COARSE_LOCATION] == true
             ) {
-                getCurrentLocation()
+                Log.e("LOCATION", "permissionLauncher()")
+                getLocation()
             }else{
-                Log.e("пошла я нахуй", "идите нахуй")
             }
         }
 
