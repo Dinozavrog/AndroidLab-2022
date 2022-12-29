@@ -137,7 +137,7 @@ class TasksFragment : Fragment(R.layout.fragment_tasks) {
                 Log.e("list", tasks.toString())
                 if(tasks.isNullOrEmpty()) {
                     rvTasks.visibility = View.GONE
-                    tvNoTasks.visibility = View.VISIBLE
+                    tvNoTasks.setText("Для начала работы создайте первую цель")
                 }
                 else {
                     rvTasks.visibility = View.VISIBLE
