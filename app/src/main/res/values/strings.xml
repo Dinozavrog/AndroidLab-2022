@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">AndroidLab-2022</string>
+    <string name="app_name" translatable="false">AndroidLab-2022</string>
+    <string name="add_picture">Прикрепить изображение</string>
+    <string name="choose">Choose</string>
+    <string name="not_allowed">Вы запретили открывать камеру и галерею</string>
+    <string name="allow">Разрешить</string>
+    <string name="need_allow">Требуется разрешение на камеру и галерею</string>
+    <string name="settings">Перейти в настройки</string>
+    <string name="icon_my">Прикрепить изображение</string>
 </resources>
