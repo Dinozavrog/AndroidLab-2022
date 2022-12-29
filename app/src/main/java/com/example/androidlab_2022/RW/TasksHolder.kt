@@ -1,5 +1,6 @@
 package com.example.androidlab_2022.RW
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,17 +9,34 @@ import com.example.androidlab_2022.databinding.TaskBinding
 
 class TasksHolder (
     val binding: TaskBinding,
-    val onDeleteClicked: ((Int) -> Unit)?,
-    val onEditClicked: ((Int) -> Unit)?,
+    val onDeleteClicked: ((Int) -> Unit),
+    val onEditClicked: ((Int) -> Unit),
+    private var task: Task? = null
         ) : RecyclerView.ViewHolder(binding.root) {
 
-    init {
+//    init {
+//        with(binding) {
+//            ibDelete.setOnClickListener {
+//                onDeleteClicked?.invoke(adapterPosition)
+//            }
+//            ibEdit.setOnClickListener {
+//                onEditClicked?.invoke(adapterPosition)
+//
+//            }
+//        }
+//    }
+
+    fun bind(item: Task) {
+        this.task = item
         with(binding) {
-            ibDelete.setOnClickListener {
-                onDeleteClicked?.invoke(adapterPosition)
-            }
+            tvTitle.text = item.title
+            tvDescription.text = item.description
+
             ibEdit.setOnClickListener {
-                onEditClicked?.invoke(adapterPosition)
+                item.id?.let { it1 -> onEditClicked(it1) }
+            }
+            ibDelete.setOnClickListener {
+                item.id?.let { it1 -> onDeleteClicked(it1) }
             }
         }
     }
@@ -35,16 +53,16 @@ class TasksHolder (
     companion object {
         fun create(
             parent: ViewGroup,
-            onDeleteClicked: ((Int) -> Unit)?,
-            onEditClicked: ((Int) -> Unit)?,
+            onDeleteClicked: ((Int) -> Unit),
+            onEditClicked: ((Int) -> Unit),
         ): TasksHolder = TasksHolder(
             binding = TaskBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             ),
-            onDeleteClicked = onDeleteClicked,
-            onEditClicked = onEditClicked,
+            onDeleteClicked,
+            onEditClicked,
         )
     }
 }

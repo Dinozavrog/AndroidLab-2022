@@ -32,13 +32,14 @@ class TasksRep(context: Context) {
         taskDao.getAll()
 
 
-    suspend fun deleteAllTasks() {
+    suspend fun deleteAll() {
         taskDao.deleteAll()
     }
 
-    suspend fun findTask(id: Int) {
+
+    suspend fun findTask(id: Int): Task =
         taskDao.findTaskById(id)
-    }
+
 
     suspend fun updateTask(task : Task) {
         taskDao.update(task)

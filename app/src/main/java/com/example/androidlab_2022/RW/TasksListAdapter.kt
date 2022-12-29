@@ -23,9 +23,12 @@ class TasksListAdapter (
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = currentList[position]
         when (holder) {
-            is TasksHolder -> holder.onBind(item as Task)
+            is TasksHolder -> holder.bind(item as Task)
         }
     }
+
+
+
 
     override fun getItemViewType(position: Int): Int =
         when (currentList[position]) {

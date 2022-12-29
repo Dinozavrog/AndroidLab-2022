@@ -8,10 +8,10 @@ import java.util.*
 @Entity(tableName = "task")
 data class Task(
     @PrimaryKey(autoGenerate = true)
-    val id: Int?,
-    val title: String,
-    val description: String,
-    val date: Date?,
-    val longitude: Double?,
-    val latitude: Double?
+    var id: Int?,
+    var title: String,
+    var description: String,
+    var date: Date?,
+    var longitude: Double?,
+    var latitude: Double?
 )
